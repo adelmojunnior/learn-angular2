@@ -2,10 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'minha-imagem',
-    template: `<div>
-        <img [src]="url" width="100px" height="100px" (click)="clicar($e)">
-        </div>
-    `
+    template: '<img [src]="url" width="100px" height="100px" (click)="clicar($e)">'
 })
 
 export /**

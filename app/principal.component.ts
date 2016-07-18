@@ -2,11 +2,12 @@ import { Component } from '@angular/core'
 import { FilhoUmComponent } from './filhoUm.component';
 import { FilhoDoisComponent } from './filhoDoisComponent';
 import { MinhaImagem } from './minhaImagem';
+import { IdentificacaoForm01 } from './identificacaoForm01';
 
 @Component({
     selector: 'teste-app',
     template: `
-        <h1>Minha aplicação angular 2</h1>
+        <h1>Learn Angular 2</h1>
         <input [value]="'Olá ' + nome">  <!-- Exemplo binding properties-->
 
         <p>Nome: {{nome}}</p> <!-- Exemplo template variable-->
@@ -21,8 +22,9 @@ import { MinhaImagem } from './minhaImagem';
         <filho-um></filho-um>
         <filho-dois param1="Parametro passado do principalcomponent para o filhoDoisComponent" [param2]="segundos"></filho-dois>
         <minha-imagem url='https://upload.wikimedia.org/wikipedia/pt/thumb/3/34/Esporte_Clube_Vit%C3%B3ria_logo.png/120px-Esporte_Clube_Vit%C3%B3ria_logo.png' (meuClick)="exibirAlerta()"></minha-imagem>
+        <identificacao-form01><identificacao-form01>
         `,
-    directives: [FilhoUmComponent, FilhoDoisComponent, MinhaImagem]
+    directives: [FilhoUmComponent, FilhoDoisComponent, MinhaImagem, IdentificacaoForm01]
 })
 
 export /**
