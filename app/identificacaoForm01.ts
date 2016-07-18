@@ -9,7 +9,8 @@ import { Identificacao } from './identificacao';
     template: `
         <pre>{{ debug }}</pre>
         <h3>Ficha de identificação</h3>
-        <form *ngIf="active" ngSubmit="onSubmit()" #identificacaoForm="ngForm">
+        <form *ngIf="ativo" ngSubmit="onSubmit()" #identificacaoForm="ngForm">
+            
             <div class="form-group">
                 <label for="nome">Nome</label>
                 <input type="text" class="form-control"
@@ -22,15 +23,16 @@ import { Identificacao } from './identificacao';
                 <br /><br />TODO remover: {{spy.className}}  
             </div>
             <br />
+
             <div class="form-group">
                 <label for="sobrenome">Sobrenome</label>
                 <input type="text" class="form-control" 
                     name="sobrenome" 
                     [(ngModel)]="identificacao.sobrenome">
-            </div>  
+            </div>
+
             <button type="button" class="btn btn-default" (click)="novaIdentificacao()">Novo</button>
             <button type="submit" class="btn btn-default" [disabled]="!identificacaoForm.form.valid">Submit</button>
-
         </form>
     `
 })
@@ -43,13 +45,20 @@ class IdentificacaoForm01 {
     identificacao = new Identificacao(1, "Adelmo", "Freitas");
     
     submetido = false;
-    active = true;
+
+     // Reset the form with a new object AND restore 'pristine' class state
+  // by toggling 'ativo' flag which causes the form
+  // to be removed/re-added in a tick via NgIf
+  // TODO: Workaround until NgForm has a reset method (#6822)
+    ativo = true;
 
     novaIdentificacao() {
         this.identificacao = new Identificacao(2, '');
-        this.active = false;
-        setTimeout(() => this.active = true, 0);
+        this.ativo = false;
+        setTimeout(() => this.ativo = true, 0);
     }
+
+    onSubmit() { this.submetido = true; }
 
     get debug() {
         return JSON.stringify(this.identificacao);
