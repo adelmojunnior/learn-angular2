@@ -3,6 +3,7 @@ import { FilhoUmComponent } from './filhoUm.component';
 import { FilhoDoisComponent } from './filhoDoisComponent';
 import { MinhaImagem } from './minhaImagem';
 import { IdentificacaoForm01 } from './identificacaoForm01';
+import { IdentificacaoForm02 } from './identificacaoForm02';
 
 @Component({
     selector: 'teste-app',
@@ -23,8 +24,9 @@ import { IdentificacaoForm01 } from './identificacaoForm01';
         <filho-dois param1="Parametro passado do principalcomponent para o filhoDoisComponent" [param2]="segundos"></filho-dois>
         <minha-imagem url='https://upload.wikimedia.org/wikipedia/pt/thumb/3/34/Esporte_Clube_Vit%C3%B3ria_logo.png/120px-Esporte_Clube_Vit%C3%B3ria_logo.png' (meuClick)="exibirAlerta()"></minha-imagem>
         <identificacao-form01><identificacao-form01>
+        <identificacao-form02><identificacao-form02>
         `,
-    directives: [FilhoUmComponent, FilhoDoisComponent, MinhaImagem, IdentificacaoForm01]
+    directives: [FilhoUmComponent, FilhoDoisComponent, MinhaImagem, IdentificacaoForm01, IdentificacaoForm02]
 })
 
 export /**
